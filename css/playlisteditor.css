@@ -2,21 +2,20 @@
 
 #block_wrapper h1{
     font-family: 'Spicy Rice', cursive;
-
 }
+
 #playlist_wrapper{
     margin-top:25px;
-    padding:25px;
+    padding:5px;
     text-align:center;
-
-
 }
+
 #search{
     background: white url(search-icon.png) right no-repeat;
     padding-right: 17px;
     padding: 5px;
     color: #808080;
-    width:40%;
+    width:50%;
 }
 
 
@@ -27,10 +26,8 @@
     display:inline-block;
 }
 #playlist_container{
-    margin-left:18%;
+   min-width:330px;
 
-    min-width:330px;
-    width:65%;
 
 }
 .play{
@@ -68,7 +65,6 @@
     vertical-align:middle;
     display:table-block;
     boarder:0px;
-    padding:5px;
     background: #f2f9fe; /* Old browsers */
     background: -moz-linear-gradient(top, #f2f9fe 0%, #d6f0fd 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f9fe), color-stop(100%,#d6f0fd)); /* Chrome,Safari4+ */
@@ -78,7 +74,10 @@
     background: linear-gradient(to bottom, #f2f9fe 0%, #d6f0fd 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f9fe', endColorstr='#d6f0fd',GradientType=0 ); /* IE6-9 */
 }
-
+#playlist td {
+    vertical-align:middle;
+    text-align:center;
+}
 #playlist th {
     background: #e0f3fa; /* Old browsers */
     background: -moz-linear-gradient(top,  #e0f3fa 0%, #d8f0fc 50%, #b8e2f6 51%, #b6dffd 100%); /* FF3.6+ */
@@ -88,22 +87,26 @@
     background: -ms-linear-gradient(top,  #e0f3fa 0%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #e0f3fa 0%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa', endColorstr='#b6dffd',GradientType=0 ); /* IE6-9 */
-
+    text-align:center;
     font-size:120%;
+    font-weight:bold;
     border:0px;
     padding:10px;
     vertical-align:middle;
 }
 #results_wrapper {
     display:block;
-    margin-left:28%;
     min-width:250px;
     padding-bottom:25px;
+    width:100%;
 
 }
+
 #results {
     border-collapse:collapse;
-    width:62%;
+    width:82%;
+    margin-left:9%;
+    margin-right:9%;
     background: #fcfff4; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZmZmNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlOWU5Y2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -114,8 +117,8 @@
     background: -ms-linear-gradient(top,  #fcfff4 0%,#e9e9ce 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #fcfff4 0%,#e9e9ce 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#e9e9ce',GradientType=0 ); /* IE6-8 */
-
 }
+
 #results tbody tr {
     background: #fcfff4; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -130,6 +133,10 @@
 
 }
 
+#results tbody td {
+    text-align:center;
+    vertical-align:middle;
+}
 
 #results tbody tr:hover {
     color: #301e00;
@@ -143,12 +150,14 @@
     background: -ms-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-8 */
-
-
+    cursor:pointer;
 }
 
 #results thead th{
     font-size: 110%;
+    font-weight:bold;
+    text-align:center;
+    vertical-align:middle;
     color:white;
     background: #f0b7a1; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -162,6 +171,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=0 ); /* IE6-8 */
 
 }
+
 #preview{
     background: #cedce7; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
