@@ -4,8 +4,11 @@
 
 $bt = BlockType::getByHandle('playlistcreator');
 $toolsdir = Loader::helper('concrete/urls')->getBlockTypeToolsURL($bt);
+$blockdir = Loader::helper('concrete/urls')->getBlockTypeAssetsURL($bt);
 
 global $c;
+
+
 ?>
 
 
@@ -26,7 +29,7 @@ global $c;
 
         <div id="howto"><p>To find a song to add to the playlist, type it in the search box above and press enter.</p>
         </div>
-        <div class="loading"><img src="<?php echo $toolsdir?>/ajax-loader.gif"/></div>
+        <div class="loading"><img src="<?php echo $blockdir?>/images/ajax-loader.gif"/></div>
         <div id="results_wrapper"></div>
         <div id="playlist"></div>
     </div>

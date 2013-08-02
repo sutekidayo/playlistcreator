@@ -9,11 +9,11 @@
 
 $bt = BlockType::getByHandle('playlistcreator');
 $toolsdir = Loader::helper('concrete/urls')->getBlockTypeToolsURL($bt);
-
+$blockdir = Loader::helper('concrete/urls')->getBlockTypeAssetsURL($bt);
 $lastfmAPI = "0ada7a99aead9d29f6ecae4de5a229a4";
 
 $db = Loader::db();
-
+$db->SetFetchMode(ADODB_FETCH_ASSOC);
 
 // get the selected playlist
 if (empty($_POST["action"])) {
@@ -29,38 +29,39 @@ if (empty($_POST["action"])) {
                 <td>' . $row["sName"] . '</td><td>' . $row["sArtist"] . '</td><td class="votes">' . $row["sRank"] . '</td><td>' . gmdate('i:s', $row["sLength"] * .001) . '</td>
                 <td style="text-align:left"width="120px">
                     <div class="vote">
-                        <img title="Vote UP" class="vote_up" src="$toolsdir/vote_up.png"name="' . $row["songID"] . '"/>
-                        <img title="Vote DOWN"class="vote_down" src="$toolsdir/vote_down.png" name="' . $row["songID"] . '">
+                        <img title="Vote UP" class="vote_up" src="'.$blockdir.'/images/vote_up.png"name="' . $row["sID"] . '"/>
+                        <img title="Vote DOWN"class="vote_down" src="'.$blockdir.'/images/vote_down.png" name="' . $row["sID"] . '">
                     </div>
-                    <img title="Play Song"class="play" style="padding-left:25px;"width="50px" src="$toolsdir/play.png" name="' . $row["songID"] . '"/>
+                    <img title="Play Song"class="play" style="padding-left:25px;"width="50px" src="'.$blockdir.'/images/play.png" name="' . $row["sID"] . '"/>
                 </td>
             </tr>';
         }
-
-        $playlist .= '</table>
+echo $playlist;
+?>
+        </table>
             <script>
             $(".play").click(function(){
-                $("#grooveshark_embed").load("$toolsdir/grooveshark.php",{songID:$(this).attr("name")});
+                $("#grooveshark_embed").load("<?php echo $toolsdir?>/grooveshark.php",{songID:$(this).attr("name")});
             });
 
             $(".vote_up").click(function(){
-                $.post("$toolsdir/playlist.php",{action:"vote_up", SongID:$(this).attr("name")},function(data){
+                $.post("<?php echo $toolsdir?>/playlist.php",{action:"vote_up", SongID:$(this).attr("name")},function(data){
                     //Update the Vote Tally
-                   $("#playlist").load("$toolsdir/playlist.php");
+                   $("#playlist").load("<?php echo $toolsdir?>/playlist.php");
                 });
             });
             $(".vote_down").click(function(){
-                 $.post("$toolsdir/playlist.php",{action:"vote_down", SongID:$(this).attr("name")},function(data){
+                 $.post("<?php echo $toolsdir?>/playlist.php",{action:"vote_down", SongID:$(this).attr("name")},function(data){
                     //Update the Vote Tally
-                    $("#playlist").load("$toolsdir/playlist.php");
+                    $("#playlist").load("<?php echo $toolsdir?>/playlist.php");
                 });
             });
 
-        </script>';
-        echo $playlist;
+        </script>
 
 
 
+<?php
 
 } else if ($_POST["action"] == "add") {
     //First check to see if the song already exists in DB
@@ -116,3 +117,4 @@ if (empty($_POST["action"])) {
 // checkLyrics Function calls the Lyric API for the song in Questions
 // Calls getLyrics() and safeLyrics()
 // returns the number of innappropriate words found in the lyrics
+?>

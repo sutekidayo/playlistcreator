@@ -8,7 +8,7 @@
  */
 $bt = BlockType::getByHandle('playlistcreator');
 $toolsdir = Loader::helper('concrete/urls')->getBlockTypeToolsURL($bt);
-
+$blockdir = Loader::helper('concrete/urls')->getBlockTypeAssetsURL($bt);
 $query = str_replace(" ","+",$_POST['query']);
 $groove_contents="";
 $grooveAPI = "5ba3b657be55af5802c98fa78daaf77f"; // Tinysong API KEY
@@ -27,9 +27,9 @@ curl_close($ch);
 echo '<table id="results"><thead><tr><th>Song Name</th><th>Artist Name</th><th>Album Name</th><th></th></tr></thead><tbody>';
 foreach( $groove_contents as $result)
 {
-    echo '<tr id="'.$result['SongID'].'"><td class="songName clickable">'.$result["SongName"].'</td><td class="artistName clickable">'.$result['ArtistName'].'</td><td class="clickable">'.$result['AlbumName'].'</td><td><img class="play" style="padding-left:25px;"width="25px" title="Play Song" src="'.$toolsdir.'/play.png" name="'.$result['SongID'].'"/><tr/>' ;
+    echo '<tr id="'.$result['SongID'].'"><td class="songName clickable">'.$result["SongName"].'</td><td class="artistName clickable">'.$result['ArtistName'].'</td><td class="clickable">'.$result['AlbumName'].'</td><td><img class="play" style="padding-left:25px;"width="25px" title="Play Song" src="'.$blockdir.'/images/play.png" name="'.$result['SongID'].'"/><tr/>' ;
 }
-?></tbody></table>';
+?></tbody></table>
 <script>$(".play").click(function(){
            $("#grooveshark_embed").load("<?php echo $toolsdir?>/grooveshark.php",{songID:$(this).attr("name")});
 
@@ -48,4 +48,4 @@ foreach( $groove_contents as $result)
             });
         });
 
-        </script>';
+        </script>
