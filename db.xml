@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+    <table name="playlistcreator">
+        <field name="bID" type="I">
+            <key/>
+            <unsigned/>
+        </field>
+        <field name="BlockName" type="C" size="64" value="Playlist Creator"/>
+    </table>
+    <table name="playlists">
+        <field name="pID" type="I">
+            <key/>
+            <AUTO/>
+        </field>
+        <field name="playlistName" type="C" size="255">
+        </field>
+        <field name="playListDate" type="C" size="255">
+            <default value=""/>
+        </field>
+    </table>
+    <table name="playlist_songs">
+        <field name="pID" type="I">
+            <NOTNULL/>
+        </field>
+        <field name="sID" type="I">
+            <NOTNULL/>
+        </field>
+    </table>
+    <table name="songs">
+        <field name="songID" type="I">
+            <key/>
+            <NOTNULL/>
+        </field>
+        <field name="sName" type="C" size="255">
+            <NOTNULL/>
+        </field>
+        <field name="sArtist" type="C" size="255">
+            <NOTNULL/>
+        </field>
+        <field name="sRank" type="I">
+        </field>
+        <field name="sLength" type="X">
+        </field>
+        <field name="sApproved" type="I">
+            <default value="0"/>
+        </field>
+        <field name="sLyrics" type="X2">
+            <default value=""/>
+        </field>
+    </table>
+</schema>
