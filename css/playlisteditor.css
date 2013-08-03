@@ -201,6 +201,8 @@
 #grooveshark_embed{
     display:inline-block;
     margin-left:10em;
+    vertical-align:middle;
+
 }
 
 #login_info {
@@ -208,6 +210,6 @@
     display:inline-block;
     text-align:right;
     float:right;
-
+    vertical-align:middle;
 
 }

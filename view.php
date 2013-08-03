@@ -30,6 +30,7 @@ $loggedin = $u->checkLogin();
         </span>
         <span id="login_info">
             <p><?php if ($loggedin){echo "Logged in as ".$u->getUserName();} else {echo "Login in order to manage the playlist";}?></p>
+            <p><?php if($adminmode){echo "You can manage the playlists!";}?></p>
         </span>
     </div>
     <div id="playlist_wrapper">
