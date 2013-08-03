@@ -6,8 +6,15 @@ $bt = BlockType::getByHandle('playlistcreator');
 $toolsdir = Loader::helper('concrete/urls')->getBlockTypeToolsURL($bt);
 $blockdir = Loader::helper('concrete/urls')->getBlockTypeAssetsURL($bt);
 
-global $c;
+$adminmode = false;
+$youthcommitee = Group::getByName("youthcommitee");
+$u = new User();
 
+$loggedin = $u->checkLogin();
+
+    if($u->inGroup($youthcommitee)){
+        $adminmode = true;
+    }
 
 ?>
 
@@ -20,6 +27,9 @@ global $c;
     <div id="preview" class="stickypanel">
         <span id="grooveshark_embed">
             <p>Click the Play button next to a song to have it load up here.</p>
+        </span>
+        <span id="login_info">
+            <p><?php if ($loggedin){echo "Logged in as ".$u->getUserName();} else {echo "Login in order to manage the playlist";}?></p>
         </span>
     </div>
     <div id="playlist_wrapper">
